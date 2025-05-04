@@ -75,7 +75,7 @@ declare type Trip = {
 };
 
 declare type TripCardProps = {
-  id: string;
+  id: number | string;
   name: string;
   location: string;
   imageUrl: string;
