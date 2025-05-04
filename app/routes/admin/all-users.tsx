@@ -1,5 +1,14 @@
+import { Header } from "components";
+
 const AllUsers = () => {
-  return <div>AllUsers</div>;
+  return (
+    <main className="all-users wrapper">
+      <Header
+        title="Manage Users"
+        description="Filter, sort, and access detailed user profiles"
+      />
+    </main>
+  );
 };
 
 export default AllUsers;

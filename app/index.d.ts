@@ -1,10 +1,10 @@
-declare interface BaseUser {
+declare type BaseUser = {
   id: string;
   name: string;
   email: string;
   dateJoined: string;
   imageUrl: string;
-}
+};
 
 declare interface UserData extends BaseUser {
   itineraryCreated: number | string;
@@ -13,49 +13,49 @@ declare interface UserData extends BaseUser {
 
 declare type User = BaseUser;
 
-declare interface Country {
+declare type Country = {
   name: string;
   coordinates: [number, number];
   value: string;
   openStreetMap?: string;
-}
+};
 
-declare interface DropdownItem {
+declare type DropdownItem = {
   name: string;
-}
+};
 
-declare interface SelectProps {
+declare type SelectProps = {
   data: Country[] | DropdownItem[];
   onValueChange: (value: string) => void;
   id: string;
   label: string;
   placeholder: string;
-}
+};
 
-declare interface PillProps {
+declare type PillProps = {
   text: string;
   bgColor?: string;
   textColor?: string;
-}
+};
 
-declare interface Activity {
+declare type Activity = {
   time: string;
   description: string;
-}
+};
 
-declare interface DayPlan {
+declare type DayPlan = {
   day: number;
   location: string;
   activities: Activity[];
-}
+};
 
-declare interface Location {
+declare type Location = {
   city: string;
   coordinates: [number, number];
   openStreetMap: string;
-}
+};
 
-declare interface Trip {
+declare type Trip = {
   id: string;
   name: string;
   description: string;
@@ -72,30 +72,30 @@ declare interface Trip {
   weatherInfo: string[];
   location: Location;
   payment_link: string;
-}
+};
 
-declare interface TripCardProps {
+declare type TripCardProps = {
   id: string;
   name: string;
   location: string;
   imageUrl: string;
   tags: string[];
   price: string;
-}
+};
 
-declare interface StatsCard {
+declare type StatsCard = {
   headerTitle: string;
   total: number;
   lastMonthCount: number;
   currentMonthCount: number;
-}
+};
 
-declare interface TrendResult {
+declare type TrendResult = {
   trend: "increment" | "decrement" | "no change";
   percentage: number;
-}
+};
 
-declare interface DashboardStats {
+declare type DashboardStats = {
   totalUsers: number;
   usersJoined: {
     currentMonth: number;
@@ -111,48 +111,48 @@ declare interface DashboardStats {
     currentMonth: number;
     lastMonth: number;
   };
-}
+};
 
-declare interface CreateTripResponse {
+declare type CreateTripResponse = {
   id?: string;
-}
+};
 
-declare interface DestinationProps {
+declare type DestinationProps = {
   containerClass?: string;
   bigCard?: boolean;
   activityCount: number;
   rating: number;
   bgImage: string;
   title: string;
-}
+};
 
 type GetAllTripsResponse = {
   allTrips: Models.Document[];
   total: number;
 };
 
-declare interface UsersItineraryCount {
+declare type UsersItineraryCount = {
   imageUrl: string;
   name: string;
   count: number;
-}
+};
 
-declare interface TripsInterest {
+declare type TripsInterest = {
   imageUrl: string;
   name: string;
   interest: string;
-}
+};
 
-declare interface InfoPillProps {
+declare type InfoPillProps = {
   text: string;
   image: string;
-}
+};
 
-declare interface TripFormData {
+declare type TripFormData = {
   country: string;
   travelStyle: string;
   interest: string;
   budget: string;
   duration: number;
   groupType: string;
-}
+};
