@@ -1,6 +1,5 @@
 import type { LoaderFunctionArgs } from "react-router";
 import { getAllTrips, getTripById } from "~/appwrite/trips";
-import type { Route } from "./+types/trip-details";
 import { cn, getFirstWord, parseTripData } from "~/lib/utils";
 import { Header, InfoPill, TripCard } from "../../../components";
 import {

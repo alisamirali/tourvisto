@@ -1,11 +1,11 @@
 import { Link, type LoaderFunctionArgs, useSearchParams } from "react-router";
 import { ButtonComponent } from "@syncfusion/ej2-react-buttons";
 import { cn, parseTripData } from "~/lib/utils";
-import { Header, TripCard } from "../../../components";
-// import { getAllTrips } from "~/appwrite/trips";
+import { Header, TripCard } from "components";
+import { getAllTrips } from "~/appwrite/trips";
 import type { Route } from "../../../.react-router/types/app/routes/admin/+types/trips";
 import { useState } from "react";
-// import { getUser } from "~/appwrite/auth";
+import { getUser } from "~/appwrite/auth";
 import { PagerComponent } from "@syncfusion/ej2-react-grids";
 
 const FeaturedDestination = ({
@@ -64,30 +64,29 @@ const FeaturedDestination = ({
   </section>
 );
 
-// export const loader = async ({ request }: LoaderFunctionArgs) => {
-//   const limit = 8;
-//   const url = new URL(request.url);
-//   const page = parseInt(url.searchParams.get("page") || "1", 10);
-//   const offset = (page - 1) * limit;
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  const limit = 8;
+  const url = new URL(request.url);
+  const page = parseInt(url.searchParams.get("page") || "1", 10);
+  const offset = (page - 1) * limit;
 
-//   const [user, { allTrips, total }] = await Promise.all([
-//     getUser(),
-//     getAllTrips(limit, offset),
-//   ]);
+  const [user, { allTrips, total }] = await Promise.all([
+    getUser(),
+    getAllTrips(limit, offset),
+  ]);
 
-//   return {
-//     trips: allTrips.map(({ $id, tripDetails, imageUrls }) => ({
-//       id: $id,
-//       ...parseTripData(tripDetails),
-//       imageUrls: imageUrls ?? [],
-//     })),
-//     total,
-//   };
-// };
+  return {
+    trips: allTrips.map(({ $id, tripDetails, imageUrls }) => ({
+      id: $id,
+      ...parseTripData(tripDetails),
+      imageUrls: imageUrls ?? [],
+    })),
+    total,
+  };
+};
 
 const TravelPage = ({ loaderData }: Route.ComponentProps) => {
-  //   const trips = loaderData.trips as Trip[] | [];
-  const trips: Trip[] = [];
+  const trips = loaderData.trips as Trip[] | [];
 
   const [searchParams] = useSearchParams();
   const initialPage = Number(searchParams.get("page") || "1");
@@ -190,11 +189,11 @@ const TravelPage = ({ loaderData }: Route.ComponentProps) => {
       <section id="trips" className="py-20 wrapper flex flex-col gap-10">
         <Header
           title="Handpicked Trips"
-          description="Browse well-planned trips designes for your travel style"
+          description="Browse well-planned trips designs for your travel style"
         />
 
         <div className="trip-grid">
-          {/* {trips.map((trip) => (
+          {trips.map((trip) => (
             <TripCard
               key={trip.id}
               id={trip.id}
@@ -204,12 +203,11 @@ const TravelPage = ({ loaderData }: Route.ComponentProps) => {
               tags={[trip.interests, trip.travelStyle]}
               price={trip.estimatedPrice}
             />
-          ))} */}
-          Trip Card
+          ))}
         </div>
 
         <PagerComponent
-          totalRecordsCount={12}
+          totalRecordsCount={loaderData.total}
           pageSize={8}
           currentPage={currentPage}
           click={(args) => handlePageChange(args.currentPage)}

@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Link,
   useLoaderData,
@@ -40,32 +39,29 @@ const RootNavbar = () => {
         </Link>
 
         <aside>
-          {/* {user.status === "admin" && (
+          {user.status === "admin" && (
             <Link
               to="/dashboard"
               className={cn("text-base font-normal text-white", {
                 "text-dark-100": location.pathname.startsWith("/travel"),
               })}
             >
-              Admin Panel
+              Dashboard
             </Link>
-          )} */}
+          )}
 
           <img
-            src="/assets/images/david.webp"
+            src={user?.imageUrl || "/assets/images/david.wepb"}
             alt="user"
             referrerPolicy="no-referrer"
+            title={user?.name}
           />
 
-          <button
-            onClick={handleLogout}
-            className="cursor-pointer"
-            title="Logout"
-          >
+          <button onClick={handleLogout} className="cursor-pointer">
             <img
               src="/assets/icons/logout.svg"
               alt="logout"
-              className="size-6 rotate-180 filter invert hover:invert-0 duration-200 transition-all ease-in-out"
+              className="size-6 rotate-180 filter invert hover:invert-0 transition-all duration-300 ease-in-out"
             />
           </button>
         </aside>
