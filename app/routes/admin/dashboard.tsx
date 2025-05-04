@@ -26,12 +26,40 @@ import {
   useryAxis,
 } from "~/constants";
 import { redirect } from "react-router";
+import { getUser } from "~/appwrite/auth";
 
-const Dashboard = () => {
+export const clientLoader = async () => {
+  const [user] = await Promise.all([await getUser()]);
+
+  //   const allTrips = trips.allTrips.map(({ $id, tripDetails, imageUrls }) => ({
+  //     id: $id,
+  //     ...parseTripData(tripDetails),
+  //     imageUrls: imageUrls ?? [],
+  //   }));
+
+  //   const mappedUsers: UsersItineraryCount[] = allUsers.users.map((user) => ({
+  //     imageUrl: user.imageUrl,
+  //     name: user.name,
+  //     count: user.itineraryCount ?? Math.floor(Math.random() * 10),
+  //   }));
+
+  return {
+    user,
+    dashboardStats,
+    allTrips,
+    // userGrowth,
+    // tripsByTravelStyle,
+    // allUsers: mappedUsers,
+  };
+};
+
+const Dashboard = ({ loaderData }: Route.ComponentProps) => {
+  const user = loaderData.user as User | null;
+
   return (
     <main className="dashboard wrapper">
       <Header
-        title="Welcome Guest 👋"
+        title={`Welcome back, ${user?.name ?? "Guest"} 👋`}
         description="Track activity, trends and popular destinations in real time"
       />
 

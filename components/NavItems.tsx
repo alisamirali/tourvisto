@@ -1,16 +1,15 @@
 import { Link, NavLink, useLoaderData, useNavigate } from "react-router";
+import { logoutUser } from "~/appwrite/auth";
 import { sidebarItems } from "~/constants";
 import { cn } from "~/lib/utils";
-// import { logoutUser } from "~/appwrite/auth";
 
 const NavItems = ({ handleClick }: { handleClick?: () => void }) => {
   const user = useLoaderData();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    // await logoutUser();
-    // navigate("/sign-in");
-    console.log("Logout function is not implemented yet.");
+    await logoutUser();
+    navigate("/sign-in");
   };
 
   return (
@@ -48,14 +47,14 @@ const NavItems = ({ handleClick }: { handleClick?: () => void }) => {
         <footer className="nav-footer flex items-center justify-between">
           <div className="flex items-center gap-2">
             <img
-              src={user?.imageUrl || "/assets/images/david.webp"}
-              alt={user?.name || "Ali Samir"}
+              src={user?.imageUrl}
+              alt={user?.name}
               referrerPolicy="no-referrer"
             />
 
             <article>
-              <h2>{user?.name} Ali Samir</h2>
-              <p>{user?.email} ali@code.com</p>
+              <h2 title={user?.name}>{user?.name}</h2>
+              <p title={user?.email}>{user?.email}</p>
             </article>
           </div>
 

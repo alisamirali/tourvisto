@@ -72,6 +72,7 @@ declare type Trip = {
   weatherInfo: string[];
   location: Location;
   payment_link: string;
+  tags: string[];
 };
 
 declare type TripCardProps = {

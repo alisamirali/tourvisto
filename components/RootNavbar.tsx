@@ -6,7 +6,7 @@ import {
   useNavigate,
   useParams,
 } from "react-router";
-// import { logoutUser } from "~/appwrite/auth";
+import { logoutUser } from "~/appwrite/auth";
 import { cn } from "~/lib/utils";
 
 const RootNavbar = () => {
@@ -16,10 +16,8 @@ const RootNavbar = () => {
   const user = useLoaderData();
 
   const handleLogout = async () => {
-    // await logoutUser();
-    // navigate("/sign-in");
-
-    console.log("Logout function is not implemented yet.");
+    await logoutUser();
+    navigate("/sign-in");
   };
 
   return (
