@@ -1,4 +1,4 @@
-import { Header, StatsCard, TripCard } from "../../../components";
+import { Header, StatsCard, TripCard } from "components";
 import type { Route } from "./+types/dashboard";
 import { parseTripData } from "~/lib/utils";
 import {
