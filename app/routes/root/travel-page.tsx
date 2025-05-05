@@ -100,9 +100,9 @@ const TravelPage = ({ loaderData }: Route.ComponentProps) => {
 
   return (
     <main className="flex flex-col">
-      <section className="travel-hero">
+      <section className="travel-hero min-h-screen">
         <div>
-          <section className="wrapper">
+          <section className="wrapper min-h-screen">
             <article>
               <h1 className="p-72-bold text-dark-100">
                 Plan Your Trip with Ease
