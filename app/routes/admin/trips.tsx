@@ -1,4 +1,4 @@
-import { Header, TripCard } from "../../../components";
+import { Header, SEO, TripCard } from "components";
 import { type LoaderFunctionArgs, useSearchParams } from "react-router";
 import { getAllTrips, getTripById } from "~/appwrite/trips";
 import { parseTripData } from "~/lib/utils";
@@ -39,6 +39,10 @@ const Trips = ({ loaderData }: Route.ComponentProps) => {
 
   return (
     <main className="all-users wrapper">
+      <SEO
+        title="Manage Trips | Admin Dashboard | Tourvisto"
+        description="View and manage all created trips. Monitor trip details, edit travel plans, and oversee trip creation activities."
+      />
       <Header
         title="Trips"
         description="View and edit AI-generated travel plans"

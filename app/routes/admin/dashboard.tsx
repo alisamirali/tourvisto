@@ -1,4 +1,4 @@
-import { Header, StatsCard, TripCard } from "components";
+import { Header, SEO, StatsCard, TripCard } from "components";
 import { getAllUsers, getUser } from "~/appwrite/auth";
 import type { Route } from "./+types/dashboard";
 import {
@@ -93,6 +93,10 @@ const Dashboard = ({ loaderData }: Route.ComponentProps) => {
 
   return (
     <main className="dashboard wrapper">
+      <SEO
+        title="Admin Dashboard | Tourvisto"
+        description="Manage and monitor your travel platform. Track user activity, analyze trends, and oversee trip creation in real-time."
+      />
       <Header
         title={`Welcome ${user?.name ?? "Guest"} 👋`}
         description="Track activity, trends and popular destinations in real time"

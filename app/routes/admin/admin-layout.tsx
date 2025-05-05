@@ -1,6 +1,6 @@
 import { Outlet, redirect } from "react-router";
 import { SidebarComponent } from "@syncfusion/ej2-react-navigations";
-import { MobileSidebar, NavItems } from "../../../components";
+import { MobileSidebar, NavItems } from "components";
 import { account } from "~/appwrite/client";
 import { getExistingUser, storeUserData } from "~/appwrite/auth";
 

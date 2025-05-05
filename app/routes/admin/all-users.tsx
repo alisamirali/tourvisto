@@ -1,4 +1,4 @@
-import { Header } from "../../../components";
+import { Header, SEO } from "components";
 import {
   ColumnsDirective,
   ColumnDirective,
@@ -19,6 +19,10 @@ const AllUsers = ({ loaderData }: Route.ComponentProps) => {
 
   return (
     <main className="all-users wrapper">
+      <SEO
+        title="User Management | Admin Dashboard | Tourvisto"
+        description="Manage and monitor user accounts. View user profiles, track user activity, and manage user permissions in the admin dashboard."
+      />
       <Header
         title="Manage Users"
         description="Filter, sort, and access detailed user profiles"

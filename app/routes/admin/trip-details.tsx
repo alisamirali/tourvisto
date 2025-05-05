@@ -1,7 +1,8 @@
 import type { LoaderFunctionArgs } from "react-router";
 import { getAllTrips, getTripById } from "~/appwrite/trips";
+import { SEO } from "components";
 import { cn, getFirstWord, parseTripData } from "~/lib/utils";
-import { Header, InfoPill, TripCard } from "../../../components";
+import { Header, InfoPill, TripCard } from "components";
 import {
   ChipDirective,
   ChipListComponent,
@@ -68,6 +69,10 @@ const TripDetails = ({
 
   return (
     <main className="travel-detail wrapper">
+      <SEO
+        title={`${name || "Trip Details"} | Admin View | Tourvisto`}
+        description={`Manage and edit details for ${duration}-day ${travelStyle} trip to ${country}. View itinerary, pricing, and trip specifications in admin dashboard.`}
+      />
       <Header
         title="Trip Details"
         description="View and edit AI-generated travel plans"

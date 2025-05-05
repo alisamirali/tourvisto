@@ -1,4 +1,4 @@
-import { Header } from "components";
+import { Header, SEO } from "components";
 import { ComboBoxComponent } from "@syncfusion/ej2-react-dropdowns";
 import type { Route } from "./+types/create-trip";
 import { comboBoxItems, selectItems } from "~/constants";
@@ -119,6 +119,10 @@ const CreateTrip = ({ loaderData }: Route.ComponentProps) => {
 
   return (
     <main className="flex flex-col gap-10 pb-20 wrapper">
+      <SEO
+        title="Create New Trip | Admin Dashboard | Tourvisto"
+        description="Create and customize new travel experiences. Design itineraries, set trip parameters, and generate AI-powered travel plans for your customers."
+      />
       <Header
         title="Add a New Trip"
         description="View and edit AI Generated travel plans"

@@ -1,7 +1,8 @@
 import { Link, type LoaderFunctionArgs } from "react-router";
+import { SEO } from "components";
 import { getAllTrips, getTripById } from "~/appwrite/trips";
 import { cn, getFirstWord, parseTripData } from "~/lib/utils";
-import { Header, InfoPill, TripCard } from "../../../components";
+import { Header, InfoPill, TripCard } from "components";
 import {
   ButtonComponent,
   ChipDirective,
@@ -64,6 +65,15 @@ const TravelDetail = ({ loaderData }: Route.ComponentProps) => {
 
   return (
     <main className="travel-detail pt-40 wrapper">
+      <SEO
+        title={`${name || "Trip Details"} | ${duration}-Day ${
+          country || ""
+        } Tour | Tourvisto`}
+        description={
+          description ||
+          `Explore this amazing ${duration}-day ${travelStyle} trip to ${country}. Perfect for ${groupType} travelers with ${interests} interests and ${budget} budget.`
+        }
+      />
       <div className="travel-div">
         <Link to="/" className="back-link">
           <img src="/assets/icons/arrow-left.svg" alt="back icon" />
