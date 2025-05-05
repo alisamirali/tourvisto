@@ -1,5 +1,4 @@
 import { Link, type LoaderFunctionArgs, useSearchParams } from "react-router";
-import { SEO } from "components";
 import { ButtonComponent } from "@syncfusion/ej2-react-buttons";
 import { cn, parseTripData } from "~/lib/utils";
 import { Header, TripCard } from "components";
@@ -101,10 +100,6 @@ const TravelPage = ({ loaderData }: Route.ComponentProps) => {
 
   return (
     <main className="flex flex-col">
-      <SEO
-        title="Explore Travel Destinations | Tourvisto"
-        description="Discover amazing travel destinations worldwide. Find handpicked trips, featured locations, and personalized travel experiences tailored to your preferences."
-      />
       <section className="travel-hero min-h-screen">
         <div>
           <section className="wrapper min-h-screen">
